@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Premium Paid Certificate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 150px;
+        }
+
+        .qr-code {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #004BA8;
+            color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .details {
+            margin-top: 10px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .details th, .details td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .details th {
+            background-color: #f2f2f2;
+        }
+
+        .highlight {
+            background-color: #f9f9f9;
+        }
+
+        .notes {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .blue-text {
+            color: #004BA8;
+        }
+        .logo{
+            height: 100px;
+            width: 200px;
+        }
+        .qr-code{
+            height: 100px;
+            width: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+        <div class="header">
+            <img src="file:///CamelTraining/PolicyManagement/PolicyManagement/Logo/Logo.png" alt="Policy adda" class="logo">
+            <h1>Premium Paid Certificate</h1>
+            <p>Receipt Date: 28-APR-2024</p>
+        </div>
+      
+         
+        <div class="section">
+            <div class="section-title">Personal Details</div>
+            <table class="details">
+                <tr>
+                    <th>Policy Number</th>
+                    <td class="highlight">1430341555</td>
+                </tr>
+                <tr>
+                    <th>Policyholder Name</th>
+                    <td><span th:text="${headers.customer_username}"></span></td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td class="highlight"><span th:text="${headers.customer_address}"></span></td>
+                </tr>
+                <tr>
+                    <th>Email ID</th>
+                    <td><span th:text="${headers.customer_email}"></span></td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td class="highlight"><span th:text="${headers.customer_gender}"></span></td>
+                </tr>
+                <tr>
+                    <th>Date Of Birth</th>
+                    <td class="highlight"><span th:text="${headers.customer_dob}"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Policy Details</div>
+            <table class="details">
+                <tr>
+                    <th>Plan Name</th>
+                    <td class="highlight"><span th:text="${headers.plans_name}"></span></td>
+                </tr>
+                <tr>
+                    <th>Policy Term</th>
+                    <td>40 Years</td>
+                </tr>
+                <tr>
+                    <th> Payment Amount</th>
+                    <td class="highlight"><span th:text="${headers.insurance_amount}"></span></td>
+                </tr>
+                <tr>
+                    <th>Premium Received (incl. GST)</th>
+                    <td><span th:text="${headers.insurance_premium}"></span></td>
+                </tr>
+            </table>
+        </div>
+
+       
+
+        <div class="section">
+            <div class="section-title">Summary</div>
+            <table class="details">
+                <tr>
+                    <th>Total Sum Assured of base plan (incl. GST)</th>
+                    <td class="highlight">2,086.91</td>
+                </tr>
+                <tr>
+                    <th>Premium Received (incl. GST)</th>
+                    <td>2,086.91</td>
+                </tr>
+                <tr>
+                    <th>Duration for which premium is received</th>
+                    <td class="highlight">25-APR-2024 to 24-MAY-2024</td>
+                </tr>
+                <tr>
+                    <th>Next Premium Due Date</th>
+                    <td>25-MAY-2024</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="notes">
+            <p>Important Note: In case of payment other than in cash, this receipt is conditional on the realisation of the cheque or account. Payment of premium amount debited does not constitute a commitment until the same is credited to Max Life Insurance Company Limited's account.</p>
+        </div>
+
+        <div class="footer">
+            <p>For Max Life Insurance Company Limited</p>
+            <p class="blue-text"><strong>Authorised Signatory</strong></p>
+            <p><!-- QR_CODE_PLACEHOLDER --> </p>
+            <img th:src="${headers.qrCodePath}" alt="QR Code"/>
+        </div>
+    </div>
+</body>
+</html>

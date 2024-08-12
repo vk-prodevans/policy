@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: policy-application-service
+  labels:
+    app: policy-application
+spec:
+  selector:
+    app: policy-application
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8084
+  type: NodePort

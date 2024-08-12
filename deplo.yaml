@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: policy-application
+  labels:
+    app: policy-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: policy-application
+  template:
+    metadata:
+      labels:
+        app: policy-application
+    spec:
+      containers:
+        - name: policy-application
+          image: vinodh220/oc-policy-backend
+          ports:
+            - containerPort: 8084
+          resources: {}
+          env:
+            - name: DB_URL
+              value: "jdbc:postgresql://192.168.49.2:5432/postgres"
+            - name: DB_USERNAME
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "admin"
